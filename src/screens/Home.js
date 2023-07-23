@@ -20,6 +20,7 @@ export default function Home(props)
        </View>
     );
 };
+//test
 const styles = StyleSheet.create({
     button:{
         backgroundColor: '#434343', 
