@@ -45,7 +45,7 @@ const OtpPage = () => {
       <View style={[
                         styles.btnContinue,
                         {
-                            backgroundColor: otp? '#434343' : 'gray'
+                            backgroundColor: otp? '#434343' : '#AFAFAF'
                         }
                     ]}>
 

@@ -2,21 +2,34 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, StatusBar, KeyboardAvoidingView, Image, TouchableOpacity, } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import CustomSwitch from '../components/CustomSwitch';
+//import PhoneInput from 'react-native-phone-input';
+
 
 export default function Login(props) {
     const [email, setemail] = useState('');
     const [SelectedSwitch, setSelectedSwitch] = useState(2);
     const [phonenumber, setphonenumber] = useState('');
+    const [isValidEmail, setIsValidEmail] = useState(false);
+
+  // Function to validate email using regular expression
+ 
     const onchangephone = (number) => {
         setphonenumber(number)
     }
     const onchangeemail = (email) => {
-        setemail(email)
+        setemail(email);
     }
 
     const onprss = () =>{
-        props.navigation.navigate('OTPVerification')
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(emailRegex.test(email)){
+            setIsValidEmail(false)
+            props.navigation.navigate('OTPVerification')
+        }else{
+            setIsValidEmail(true)
+        }
     }
+    const isEmailValid = email.trim() !== ''; // Check if email is not empty
     return (
 
         <KeyboardAvoidingView style={styles.container}>
@@ -75,16 +88,22 @@ export default function Login(props) {
                                         secureTextEntry={false}
                                     />
                                 </View>
+                                {isValidEmail && (
+                                   <Text style={styles.errorMessage}>Invalid Email Id</Text>
+                                )}
                             </>
                     }
                 </View>
             </View>
             <View style={styles.viewBottom}>
-            <TouchableOpacity onPress={onprss} >
+            <TouchableOpacity 
+            onPress={onprss}  
+            style={[styles.button, !isEmailValid && styles.disabledButton]}
+            disabled={!isEmailValid}>
                     <View style={[
                         styles.btnContinue,
                         {
-                            backgroundColor: phonenumber ? '#244DB7' : 'gray'
+                            backgroundColor: email ? '#434343' : '#AFAFAF'
                         }
                     ]}>
                         <Text style={styles.textContinue}>Get OTP</Text>
@@ -151,6 +170,8 @@ const styles = StyleSheet.create({
     TextInputStyle: {
         height: 50,
         color: 'black',
+        width:327,
+        height:48
     },
     viewBottom: {
         flex: 1,
@@ -174,5 +195,11 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 50
     },
-
+    errorMessage: {
+        color: 'red',
+        marginTop: 2,
+      },
+      disabledButton: {
+     //   backgroundColor: '#AFAFAF',
+      },
 })

@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import login from './src/screens/login';
 import home from './src/screens/Home';
-//import picker from './src/screens/picker';
 // import SWITCH from './src/screens/switch';
 //import CustomSwitch from './CustomSwitch';
 import OTPVerification from './src/screens/OTPVerification';
+//import phoneinput from './src/screens/phoneinput';
 
 export default function App()
 {
@@ -21,7 +21,7 @@ return(
         <Stack.Screen name="OTPVerification" component={OTPVerification}  options={{ headerShown: false }}/> 
 
         
-         {/* <Stack.Screen name="picker" component={picker}  options={{ headerShown: false }}/>  */}
+         {/* <Stack.Screen name="phoneinput" component={phoneinput}  options={{ headerShown: false }}/>  */}
 
       </Stack.Navigator>
     </NavigationContainer>

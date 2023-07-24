@@ -23,8 +23,8 @@ const CustomSwitch = ({
     <View>
       <View
         style={{
-          height: 44,
-          width: 215,
+          height: 48,
+          width: 327,
           backgroundColor: '#F0F0F0',
           borderRadius: getRoundCorner ? 5 : 0,
           borderWidth: 1,
