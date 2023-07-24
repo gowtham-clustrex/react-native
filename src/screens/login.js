@@ -3,7 +3,7 @@ import { View, Text, ScrollView, StyleSheet, StatusBar, KeyboardAvoidingView, Im
 import { TextInput } from 'react-native-gesture-handler';
 import CustomSwitch from '../components/CustomSwitch';
 
-export default function Login() {
+export default function Login(props) {
     const [email, setemail] = useState('');
     const [SelectedSwitch, setSelectedSwitch] = useState(2);
     const [phonenumber, setphonenumber] = useState('');
@@ -13,9 +13,19 @@ export default function Login() {
     const onchangeemail = (email) => {
         setemail(email)
     }
+
+    const onprss = () =>{
+        props.navigation.navigate('OTPVerification')
+    }
     return (
 
         <KeyboardAvoidingView style={styles.container}>
+             <StatusBar
+        backgroundColor="transparent" 
+        barStyle="light-content" 
+        hidden={false} 
+        translucent={true}
+      />
             <Image source={require('../../assets/images/backimage.jpg')} style={{ height: '30%', width: '100%' }} />
             <View style={{ padding: '5%', position: 'absolute', flex: 1, justifyContent: 'flex-end' }}>
                 <Text style={styles.text}>Log in to you Account</Text>
@@ -68,10 +78,9 @@ export default function Login() {
                             </>
                     }
                 </View>
-
             </View>
             <View style={styles.viewBottom}>
-                <TouchableOpacity>
+            <TouchableOpacity onPress={onprss} >
                     <View style={[
                         styles.btnContinue,
                         {
@@ -80,8 +89,8 @@ export default function Login() {
                     ]}>
                         <Text style={styles.textContinue}>Get OTP</Text>
                     </View>
+            </TouchableOpacity>
 
-                </TouchableOpacity>
 
                 <View style={{
                     padding: '2%', justifyContent: 'center',
@@ -99,11 +108,6 @@ export default function Login() {
         </KeyboardAvoidingView>
     );
 };
-
-
-
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -113,16 +117,23 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         fontSize: 20,
         fontWeight: '700',
-        textAlign: 'left',
+       // textAlign: 'left',
+      //  marginBottom:100,
+        marginTop:100
+        //textAlign: 'center',
+        //alignSelf: 'center',
+
     },
     secondtext:
     {
+        margin:4,
         color: '#ffffff',
         fontWeight: '400',
+       // textAlign:'left'
     },
     textTitle: {
         marginBottom: 10,
-        marginTop: 20,
+        marginTop: 1,
         fontSize: 15,
         alignContent: 'flex-start',
         color: 'black'

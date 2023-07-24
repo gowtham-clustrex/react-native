@@ -7,6 +7,7 @@ import home from './src/screens/Home';
 //import picker from './src/screens/picker';
 // import SWITCH from './src/screens/switch';
 //import CustomSwitch from './CustomSwitch';
+import OTPVerification from './src/screens/OTPVerification';
 
 export default function App()
 {
@@ -17,6 +18,9 @@ return(
       <Stack.Navigator initialRouteName="home">
         <Stack.Screen name="home" component={home}  options={{ headerShown: false }}/>
         <Stack.Screen name="login" component={login}  options={{ headerShown: false }}/> 
+        <Stack.Screen name="OTPVerification" component={OTPVerification}  options={{ headerShown: false }}/> 
+
+        
          {/* <Stack.Screen name="picker" component={picker}  options={{ headerShown: false }}/>  */}
 
       </Stack.Navigator>
