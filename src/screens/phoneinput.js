@@ -1,30 +1,37 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import PhoneInput from 'react-native-phone-input';
+import {View, Text} from 'react-native';
+import React, {useState} from 'react';
+import PhoneInput from 'react-native-phone-number-input';
+import tw from 'twrnc';
 
-const PhoneInputScreen = () => {
+// {
+//   flex: 1,
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   backgroundColor: '#fff',
+// }
+const Phoneinput = () => {
+  const [num, setnum] = useState('');
+  const [phNum, setPhnum] = useState('');
   return (
-    <View style={styles.container}>
+
+    
+
+    <View style={tw`flex-1 items-center justify-center bg-[#fff]`}>
+      <Text>phoneinput</Text>
       <PhoneInput
-        ref={(ref) => {
-          this.phone = ref;
+        defaultValue={num}
+        defaultCode="IN"
+        containerStyle={tw`text-black bg-[#F0F0F0] w-[327px]    `}
+        textInputStyle={tw`text-black bg-[#F0F0F0]`}
+        textContainerStyle={{backgroundColor: '#F0F0F0'}}
+        onChangeText={text => {
+          setnum(text);
         }}
-        initialCountry="us" // Set the initial country (optional)
-        value="" // Set the initial value of the phone number (optional)
-        onSelectCountry={(iso2) => console.log('Selected country:', iso2)}
-        onChangePhoneNumber={(number) => console.log('Phone number:', number)}
+        withDarkTheme
+        layout="second"
       />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-});
-
-export default PhoneInputScreen;
+export default Phoneinput;
