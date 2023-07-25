@@ -8,6 +8,8 @@ import home from './src/screens/Home';
 //import CustomSwitch from './CustomSwitch';
 import OTPVerification from './src/screens/OTPVerification';
 //import phoneinput from './src/screens/phoneinput';
+import signup from './src/screens/signup';
+import gender from './src/screens/gender';
 
 export default function App()
 {
@@ -15,10 +17,13 @@ export default function App()
 
 return(
   <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
+      <Stack.Navigator initialRouteName="gender">
         <Stack.Screen name="home" component={home}  options={{ headerShown: false }}/>
         <Stack.Screen name="login" component={login}  options={{ headerShown: false }}/> 
         <Stack.Screen name="OTPVerification" component={OTPVerification}  options={{ headerShown: false }}/> 
+        <Stack.Screen name="signup" component={signup}  options={{ headerShown: false }}/> 
+        <Stack.Screen name="gender" component={gender}  options={{ headerShown: false }}/> 
+
 
         
          {/* <Stack.Screen name="phoneinput" component={phoneinput}  options={{ headerShown: false }}/>  */}

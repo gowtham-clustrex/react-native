@@ -63,7 +63,7 @@ export default function Login(props) {
                                 <Text style={styles.textTitle}>Phone Number</Text>
                                 <View style={styles.openDilogView}>
                                     <Text style={{ color: 'black', justifyContent: 'flex-start' }}>{"+91"}</Text>
-                                    <TextInput
+                                    {/* <TextInput
                                         style={styles.TextInputStyle}
                                         placeholder="Enter Phone Number"
                                         placeholderTextColor="#8B8F93"
@@ -71,7 +71,8 @@ export default function Login(props) {
                                         value={phonenumber}
                                         onChangeText={onchangephone}
                                         secureTextEntry={false}
-                                    />
+                                    /> */}
+                                    
                                 </View>
                             </>
                             :
